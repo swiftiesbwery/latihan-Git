@@ -107,7 +107,8 @@ Program ini menggunakan konsep input dari user sehingga saat dijalankan, penggun
 
 Berikut adalah contoh hasil output saat program dijalankan:
 
-![Output Program](images/output.png)
+<img width="1407" height="796" alt="image" src="https://github.com/user-attachments/assets/6b7ebbef-113f-4938-a827-6305a71df7ac" />
+
 
 ---
 
