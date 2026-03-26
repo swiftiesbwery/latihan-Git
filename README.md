@@ -2,44 +2,35 @@
 
 ## Deskripsi Kasus
 
-Sistem Manajemen Aquarium Singapura adalah program berbasis Object-Oriented Programming (OOP) yang digunakan untuk mengelola kunjungan wisata di aquarium.
+Pada tugas ini, saya membuat sebuah program berbasis Object-Oriented Programming (OOP) yang mensimulasikan sistem pengelolaan kunjungan di sebuah aquarium, yaitu Aquarium Singapura.
 
-Pengunjung dapat:
-- memasukkan data diri,
-- memilih jenis tiket,
-- menentukan zona favorit,
-- menambahkan aktivitas tambahan,
-- melihat total pembayaran.
+Program ini dirancang untuk menangani proses sederhana seperti:
 
-Zona yang tersedia antara lain:
-- Ocean Dome
-- Shark Tunnel
-- Coral Habitat
-- Penguin Bay
+* input data pengunjung,
+* pemilihan jenis tiket,
+* penentuan zona favorit,
+* penambahan aktivitas tambahan,
+* serta perhitungan total biaya yang harus dibayar.
 
-Jenis tiket:
-- Regular
-- VIP
-- Student
+Ide dari program ini terinspirasi dari pengalaman berkunjung ke tempat wisata modern yang biasanya menyediakan berbagai jenis layanan tambahan selain tiket masuk.
 
-Aktivitas tambahan:
-- Feeding Session
-- Glass Bottom Tour
-- Behind The Scene Tour
+Dengan sistem ini, pengguna dapat melakukan input langsung melalui console sehingga program menjadi lebih interaktif dan tidak statis.
 
 ---
 
 ## Keunikan Program
 
-- Program berbasis input user (tidak hardcoded)
-- Pengunjung dapat menentukan zona favorit sendiri
-- Aktivitas tambahan dapat disesuaikan jumlah dan harganya
-- Menggunakan konsep OOP secara lengkap
-- Fleksibel untuk dikembangkan
+Program ini memiliki beberapa keunikan yang membedakannya dari program lain, antara lain:
+
+* Program menggunakan input langsung dari user (tidak menggunakan data tetap/hardcoded)
+* Pengunjung bisa menentukan sendiri zona favorit yang ingin dikunjungi
+* Tersedia fitur aktivitas tambahan dengan harga yang bisa disesuaikan
+* Perhitungan harga tiket berbeda tergantung jenis tiket (VIP, Student, dll)
+* Output menampilkan ringkasan lengkap seperti sistem booking sederhana
+
+Menurut saya, bagian aktivitas tambahan ini cukup menarik karena membuat program terasa lebih realistis dibanding hanya sekadar sistem tiket biasa.
 
 ---
-
-## Class Diagram
 
 ## Class Diagram
 
@@ -55,7 +46,7 @@ classDiagram
     class Visitor {
         -String visitorId
         -List~String~ favoriteZones
-        +addFavoriteZone(String zone) void
+        +addFavoriteZone(String zone)
         +getVisitorId() String
         +getFavoriteZones() List~String~
     }
@@ -84,9 +75,9 @@ classDiagram
         -Visitor visitor
         -Ticket ticket
         -List~Activity~ activities
-        +addActivity(Activity activity) void
+        +addActivity(Activity activity)
         +calculateTotal() double
-        +printSummary() void
+        +printSummary()
     }
 
     Person <|-- Visitor
@@ -98,5 +89,105 @@ classDiagram
     Booking --> Activity
 ```
 
+---
+
+## Kode Program Java
+
+Kode program lengkap dapat dilihat pada file berikut:
+
+```
+Main.java
+```
+
+Program ini menggunakan konsep input dari user sehingga saat dijalankan, pengguna akan diminta mengisi beberapa data seperti nama, umur, jenis tiket, dan aktivitas tambahan.
+
+---
+
 ## Screenshot Output
+
+Berikut adalah contoh hasil output saat program dijalankan:
+
 ![Output Program](images/output.png)
+
+---
+
+## Penjelasan Prinsip OOP
+
+### 1. Encapsulation
+
+Encapsulation diterapkan dengan cara menyimpan data dalam atribut yang bersifat private.
+
+Contohnya pada class `Person`:
+
+* name
+* age
+
+Data tersebut tidak bisa diakses langsung, tetapi melalui method seperti `getName()` dan `getAge()`.
+
+Hal ini membuat data lebih aman dan tidak mudah diubah sembarangan dari luar class.
+
+---
+
+### 2. Inheritance
+
+Inheritance digunakan untuk mengurangi pengulangan kode.
+
+Contoh:
+
+* Class `Visitor` merupakan turunan dari `Person`
+* Class `RegularTicket`, `VIPTicket`, dan `StudentTicket` merupakan turunan dari `Ticket`
+
+Dengan konsep ini, atribut umum seperti nama dan umur tidak perlu ditulis ulang di setiap class.
+
+---
+
+### 3. Polymorphism
+
+Polymorphism terlihat pada method `calculatePrice()`.
+
+Meskipun method ini ada di class `Ticket`, setiap subclass memiliki implementasi yang berbeda:
+
+* Regular → harga normal
+* VIP → harga lebih mahal karena fasilitas tambahan
+* Student → mendapatkan diskon
+
+Ini membuat program lebih fleksibel dan mudah dikembangkan.
+
+---
+
+### 4. Abstraction
+
+Abstraction diterapkan pada class `Ticket` yang bersifat abstract.
+
+Class ini hanya memberikan gambaran umum tentang tiket, sedangkan detail perhitungan harga diimplementasikan di masing-masing subclass.
+
+Dengan cara ini, struktur program menjadi lebih rapi dan terorganisir.
+
+---
+
+## Kesimpulan
+
+Dari program ini, dapat disimpulkan bahwa konsep OOP sangat membantu dalam menyusun program yang terstruktur dan mudah dikembangkan.
+
+Dengan menggunakan:
+
+* Encapsulation
+* Inheritance
+* Polymorphism
+* Abstraction
+
+program menjadi lebih modular dan tidak mudah berantakan.
+
+Selain itu, penggunaan input dari user membuat program lebih interaktif dan mendekati kondisi nyata.
+
+---
+
+## Catatan
+
+Program ini masih bisa dikembangkan lebih lanjut, misalnya dengan:
+
+* penambahan sistem membership,
+* diskon berdasarkan umur,
+* atau penyimpanan data ke file/database.
+
+Namun untuk tahap ini, program sudah cukup untuk menunjukkan penerapan konsep OOP secara lengkap.
