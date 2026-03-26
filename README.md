@@ -41,6 +41,8 @@ Aktivitas tambahan:
 
 ## Class Diagram
 
+## Class Diagram
+
 ```mermaid
 classDiagram
     class Person {
@@ -94,7 +96,7 @@ classDiagram
     Booking --> Visitor
     Booking --> Ticket
     Booking --> Activity
+```
 
-# Screenshot output
-<img width="1399" height="892" alt="image" src="https://github.com/user-attachments/assets/20ffce68-432d-4b0e-9732-19ff8ade2856" />
-<img width="1393" height="961" alt="image" src="https://github.com/user-attachments/assets/85654e44-b13c-45dd-8f69-f78a99f2c156" />
+## Screenshot Output
+![Output Program](images/output.png)
